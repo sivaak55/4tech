@@ -1,0 +1,53 @@
+<head id="ctl00_Head1"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>
+	Cross Domain Test
+</title>    	
+	<link rel="stylesheet" type="text/css" href="css/bgemobile.css" /><link rel="stylesheet" href="css/jquery.mobile.structure-1.3.1.min.css" /><link rel="stylesheet" type="text/css" href="css/main.css" /><link rel="stylesheet" type="text/css" href="js/datebox/jqm-datebox.min.css" />
+	<script type="text/javascript"  src="js/jquery-191.js"></script>
+	<script type="text/javascript"  src="js/jqmobile-131.js"></script>
+	<script type="text/javascript" src="js/jquery.validate.min.js"></script>
+	<script type="text/javascript" src="js/additional-methods.min.js"></script>
+	<script type="text/javascript" src="js/webtrends.lite.min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src="js/bge-forms.js"></script>
+	<script type="text/javascript" src="js/bge.mobile.canp.js"></script>
+	<script type="text/javascript" src="js/knockout-2.2.1.js"></script>
+	<script type="text/javascript" src="js/kmap.js"></script>
+	<script type="text/javascript" src="js/datebox/jqm-datebox.core.min.js"></script>
+	<script type="text/javascript" src="js/datebox/jqm-datebox.mode.calbox.min.js"></script>
+	<script type="text/javascript" src="js/datebox/jquery.mobile.datebox.i18n.en_US.utf8.js"></script>
+</head>
+<script>
+ function getAlertsMsgSP() {
+    $.ajax({
+        //url: 'https://stg-secure.bge.com/_layouts/Bge.Canp/AnonymousService.asmx/GetGlobalAlertMessage',
+		//url: 'http://stage-cifmswebservice.bge.com/BGEFormEntities.svc/Form_Metadata?$format=json&$callback=SaveMetaData',
+		url: 'http://vpc2072:4444/_layouts/Bge.Canp/AnonymousService.asmx/GetMessages',
+        type: 'GET',
+		crossDomain: true,
+        headers: {
+            "cache-control": "no-cache"
+        },
+        contentType: "application/json; charset=utf-8",
+        dataType: 'JSON',
+        async: false,
+        success: function (data, textStatus, xhr) {
+			alert('success');
+        },
+        error: function (xhr, textStatus, errorThrown) {
+            $('#result').html(textStatus);
+        },
+        complete: function () {
+			alert('complete');
+			}
+    });
+} 
+ 
+ 
+</script>
+
+ 
+<body>
+Cross Domain Ajax Test
+
+</body>
